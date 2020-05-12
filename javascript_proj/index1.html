@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+	<style>
+		#sravani
+		{
+			text-align: center;
+			margin-left: 100px;
+			margin-right: 100px;
+			border-radius: 10px;
+			background-image: transparent;
+
+		}
+		input[type="text"],input[type="number"]
+		{
+			background-color: transparent;
+			height: 20px;
+			float: center;
+			border: black 2px solid;
+			border-radius: 5px;
+			border-color: darkred;
+		}
+		
+		body{
+			background-color: rgb(241, 200, 146);
+		}
+	table
+	{
+		margin-top: 50px;
+		text-align: center;
+		float: right;
+		margin-right: 90px;
+		color: black;
+	}
+	#table2
+	{
+		padding-top: -100px;
+		text-align: center;
+		float: left;
+		margin-left: 300px;
+		color: bisque;
+	}
+	caption
+	{
+		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		color: brown;
+		font-size: 30px;
+	}
+		#total
+	{
+		align-content: center;
+	}
+	
+	#show1 th, #show1 td{
+		padding: 13px;
+	}
+	#show th, #show td{
+		padding: 13px;
+	}
+	
+	#btna td input{
+		width: 100%;
+	}
+
+	input[type=button],input[type=reset	]
+	{
+		background-color: darkred;
+		border: darkred;
+		padding: 10px 32px;
+		border-radius: 5px;
+		color: blanchedalmond;
+		
+	}
+	</style>
+</head>
+<body>
+		<div id=sravani>
+			
+			<form >
+				<table>
+				Total Amount<h3 align="center" id="total" value="0">0</h1>		
+				<tr>Transaction type	<select id="opt">
+				<option> </option>
+				<option>Deposit</option>
+				<option>Withdraw</option>
+			</select></tr><br><br>
+			Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="amount" autocomplete="off"><br><br>
+			Description&nbsp;&nbsp;<input type="text" id="desc" autocomplete="off"><br><br>
+			<input type="button" name="button" id="btn" value="Add" onclick="AddRow()">&nbsp;
+			<input type="reset"><br><br>
+		</table>
+		</form>
+		</div>
+		<table border="1" id="show">
+			
+			<thead>
+				<caption>Deposit</caption>
+				<tr>
+					<th>Transaction</th>
+					<th>Amount</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		</table>
+		<div id="table2">
+		<table border="1" id="show1">
+			<thead>
+				<caption>Withdraw</caption>
+				<tr>
+					<th>Transaction</th>
+					<th>Amount</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+<script>	
+
+		function AddRow()
+		{
+
+			var choice=document.getElementById("opt")
+			var number=document.getElementById("amount")
+			var msg=document.getElementById("total")
+
+		if(choice.value=="Deposit")
+		{ if(number.value==0)
+			{
+				alert("please enter amount")
+			}
+			else
+			{
+			msg.innerHTML=eval(Number(number.value)+Number(msg.innerHTML))
+			deposit()
+			}
+
+		}
+		else if(choice.value=="Withdraw")
+		{
+			if(msg.innerHTML<number.value)
+			{
+				alert("you dont have sufficent balance")
+			}
+			else
+			{
+			msg.innerHTML=(Number(msg.innerHTML)-Number(number.value))
+			withdraw()
+			}
+		}
+		}
+
+		function deposit()
+		{
+			
+			var list1 = [];
+			var list2 = [];
+			var list3 = [];
+			
+
+			var n = 1;
+			var x = 0;
+			
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+			list1 = document.getElementById("opt").value;
+			list2 = document.getElementById("amount").value;
+			list3 = document.getElementById("desc").value;
+			
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+			
+
+			cel1.innerHTML = list1;
+			cel2.innerHTML = list2;
+			cel3.innerHTML = list3;
+	
+
+			n++;
+			x++;
+		}
+
+
+//second table
+function withdraw(){
+	var list1 = [];
+	var list2 = [];
+	var list3 = [];
+		
+
+	var n = 1;
+	var x = 0;
+
+var AddRown = document.getElementById('show1');
+var NewRow = AddRown.insertRow(n);
+
+list1[x] = document.getElementById("opt").value;
+list2[x] = document.getElementById("amount").value;
+list3[x] = document.getElementById("desc").value;
+
+
+var cel1 = NewRow.insertCell(0);
+var cel2 = NewRow.insertCell(1);
+var cel3 = NewRow.insertCell(2);
+
+
+cel1.innerHTML = list1[x];
+cel2.innerHTML = list2[x];
+cel3.innerHTML = list3[x];
+
+
+n++;
+x++;
+}
+
+	</script>
+</body>
+</html>

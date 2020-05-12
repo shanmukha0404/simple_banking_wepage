@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #border{
+            border: black 1px solid;
+            padding-left: 50px;
+            width:400px;
+            margin-left: 450px;
+            margin-top: 60px;
+            background-image: linear-gradient(to right,white,red)
+        }
+        input[type=text],input[type=password]
+        {   
+            background-color: transparent;
+            height: 25px;
+            border: none;
+            border-bottom: solid  2px;
+            width: 90%;
+        }
+
+        input[type=submit]
+        {   
+            height: 30px;
+            border-radius: 5px;
+            color: white;
+            background-color: #006AD7;
+            margin-left: 125px;
+        }
+        body
+        {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-repeat:no-repeat;
+            background-size: cover;
+            background-image: url(image.png);
+        }
+        
+        span
+        {
+            color:red;
+            font-size: 12px;
+        }
+
+
+    </style>
+        <title>Document</title>
+</head>
+<body>
+    <marquee>Have a safe banking with us</marquee>
+    <div id="border">
+        <h1><u>Sign-Up Here for now...!</u></h1>
+    <form action="home.html" onsubmit="return validate()">
+        
+        <b>Full Name</b>&nbsp;<span id="nmsg"></span><br><input type="text" placeholder="Enter the name" id="name" autocomplete="off"><br>
+        <br><b>Aadhar</b>&nbsp;<span id="amsg"></span><br><input type="text" placeholder="Enter ur 12 digits aadhar number" id="aadhar"><br>
+        <br><b>Mobile Number</b>&nbsp;<span id="mmsg"></span><br><input type="text" placeholder="enter 10 digits mobile number" id="mobile"><br>
+        <br><b>E-mail</b>&nbsp;<span id="emsg"></span><br><input type="text" placeholder="Ex: example....@gmail.com" id="mail"><br>
+        <br><b>Password</b>&nbsp;<span id="pmsg"></span><br><input type="password" placeholder="plz enter a password of minimum length of 8" id="password"><br>
+        <br><b>Re-type Password</b><br><input type="password" placeholder="enter the password again" id="cpassword"><br><br>
+    <input type="submit" value="Create Account"><br><br>
+    
+    </form>
+</div>
+<script src="validate.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+        /*signup*/
+        .align
+        {
+            float:right;
+            margin-right: 90px;
+            margin-top:-37px; 
+        }
+        
+        * {
+      box-sizing: border-box;
+      }
+      body {
+      font-family: Roboto, Helvetica, sans-serif;
+      }
+      #loginPopup {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      /* Fix the button on the left side of the page */
+      .open-btn {
+      display: flex;
+      justify-content: left;
+      }
+      /* Style and fix the button on the page */
+      .open-button {
+      background-color:transparent;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.8;
+      position: fixed;
+      }
+      /* Hide the Popup form */
+      .form-popup {
+      border: 2px solid #666;
+      z-index: 9;
+      max-width: 300px;
+      margin: 0 auto;
+      }
+      /* Styles for the form container */
+      .form-container {
+      max-width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      }
+      /* Full-width for input fields */
+      .form-container input[type=text], .form-container input[type=password] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #eee;
+      }
+      /* When the inputs get focus, do something */
+      .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+      }
+      /* Style submit/login button */
+      .form-container .btn {
+      background-color: #8ebf42;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+      }
+      /* Style cancel button */
+      .form-container .cancel {
+      background-color: #cc0000;
+      }
+      /* Hover effects for buttons */
+      .form-container .btn:hover, .open-button:hover {
+      opacity: 9;
+      }
+ul {
+  list-style-type: none;
+  margin: -7px;
+  padding: 0;
+  overflow: hidden;
+  background-image: linear-gradient(to right,#155799,#FFFFFF,#155799);
+  width: 101%;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #333;
+}
+    h1
+    {
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: whitesmoke;
+    }
+    body
+    {
+        background-image: url("back2.jpg");
+    }
+    
+    /*Footer css*/
+    footer
+    {
+            margin-top: 420px;
+            height: 30px;
+            padding-top: 5px;
+            text-align: center;
+            background-color: blanchedalmond;
+            font-feature-settings:"case";
+            font-weight: bolder;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>YES Bank</h1>
+    <ul>
+        <li><a href="default.asp">Home</a></li>
+        <li><a href="news.asp">News</a></li>
+        <li><a href="contact.asp">Contact</a></li>
+        <li><a href="about.asp">About</a></li>
+        <li><a href="#" onclick="openForm()">Log-In</a></li>
+      </ul>
+      <marquee style="background-color:white;padding:10px;margin-top: 10px;font-family: Georgia, 'Times New Roman', Times, serif;">Trusted by many customers</marquee>
+        <h1 style="float: left; font-size: 60px; color: white;">Come bank with us......</h1>
+        
+
+
+
+    <div class=align>
+      <div class="open-btn">
+        
+      </div>
+      <div id="loginPopup">
+        <div class="form-popup" id="popupForm">
+          <form  class="form-container" action="index1.html">
+            <h2>Please Log in</h2>
+            <label for="email">
+            <strong>E-mail</strong>
+            </label>
+            <input type="text" id="email" placeholder="Your Email" name="email" required>
+            <label for="psw">
+            <strong>Password</strong>
+            </label>
+            <input type="password" id="psw" placeholder="Your Password" name="psw" required><span id="msg"></span>
+            <button type="submit" class="btn" onclick="validate()">Log in</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+      <script>  
+        function openForm() 
+        {
+          document.getElementById("loginPopup").style.display="block";
+        }
+        
+        function closeForm() 
+        {
+          document.getElementById("loginPopup").style.display= "none";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          var modal = document.getElementById('loginPopup');
+          if (event.target == modal) {
+            closeForm();
+          }
+        }
+
+        //validation function
+        function validate()
+        {   
+            var mail="shanmukha.shanu.hm@gmail.com"
+            var psw="shanmukha"
+            var upsw=document.getElementById("psw").value
+            var umail=document.getElementById("email").value
+
+            if(upsw!=psw||mail!=umail)
+            {
+                document.getElementById("msg").innerHTML="Invalid user name or password"
+                return false
+            }
+        }
+        
+      </script>
+<footer>Designed by Shanmukha</footer>
+</body>
+</html>
